@@ -38,7 +38,7 @@ Welcome to **Adyapana**! This is a standalone educational application built with
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/Manulakavishka/Standalone-application-For-Adyapana-Using-Java
+   git clone https://github.com/Manulakavishka/Standalone-application-For-Adyapana-Using-Java.git
 
 2. **Open the project in your IDE**
 
