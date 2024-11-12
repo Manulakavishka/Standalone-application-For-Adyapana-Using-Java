@@ -59,6 +59,7 @@ Compile the project within the IDE
 
 ## Configuration
 - Database Path: If using a custom database path, update the path in the DatabaseConfig class.
+- Create a folder name system.cfg in C drive. C:/system.cfg
 
 ## Usage
 **Run the application:**
