@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="invoice" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b0768a46-3d8d-4a78-bfe5-8cc3b3ee7d00">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="adyapana"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="iid" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT i.id,i.time_date,i.system_user_username,i.student_id, CONCAT(s.fname,' ',s.lname) AS fullname,ip.payment,ip.balance, pt.`name` AS `paymentMethod` FROM invoice i INNER JOIN student s  ON s.id = i.id INNER JOIN invoice_payment ip ON i.id=ip.invoice_id INNER JOIN payment_type pt ON ip.payment_type_id =pt.id WHERE i.id = $P{iid}]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="invoice"/>
+	</field>
+	<field name="time_date" class="java.time.LocalDateTime">
+		<property name="com.jaspersoft.studio.field.name" value="time_date"/>
+		<property name="com.jaspersoft.studio.field.label" value="time_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="invoice"/>
+	</field>
+	<field name="system_user_username" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="system_user_username"/>
+		<property name="com.jaspersoft.studio.field.label" value="system_user_username"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="invoice"/>
+	</field>
+	<field name="student_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="student_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="student_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="invoice"/>
+	</field>
+	<field name="fullname" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="fullname"/>
+		<property name="com.jaspersoft.studio.field.label" value="fullname"/>
+	</field>
+	<field name="payment" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="payment"/>
+		<property name="com.jaspersoft.studio.field.label" value="payment"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="invoice_payment"/>
+	</field>
+	<field name="balance" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="balance"/>
+		<property name="com.jaspersoft.studio.field.label" value="balance"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="invoice_payment"/>
+	</field>
+	<field name="paymentMethod" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="paymentMethod"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payment_type"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="280" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="140" height="30" backcolor="#99FF99" uuid="c04bfeed-d298-4d6a-8d47-7f7786898414"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Company Name:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="140" y="0" width="415" height="30" backcolor="#99FF99" uuid="f453c399-7de3-4f09-a1fa-a69fbbcd90d0"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Adyapana Institute ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="30" width="60" height="20" uuid="041df552-38b3-4cee-b02e-b4f1f6fbc242"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="50" width="60" height="20" uuid="5d3567e3-9b33-40e2-a6a6-87ef8ca85b8b"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Address :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="70" width="60" height="20" uuid="3b822a13-f52e-4571-b03e-61594af5b023"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[City :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="90" width="60" height="20" uuid="c5b773c9-146c-4a53-83fc-818f1d26ee89"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Zip Code :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="111" width="60" height="20" uuid="e936b20f-f6df-4eb7-a652-f3cb25749290"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Phone :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="130" width="60" height="20" uuid="65d9566c-0e6c-4ba6-a9a5-80d50b53b6bd"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Email :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="30" width="100" height="20" uuid="b1e50aea-4ac7-4f01-a8ea-5069f1885eb6"/>
+				<text><![CDATA[K.K.R. Ranasinha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="50" width="100" height="20" uuid="b15b773a-b957-4309-8ea7-1d179a00c16e"/>
+				<text><![CDATA[232/4 Colombo ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="70" width="100" height="20" uuid="db752c4d-64e5-4335-8d43-721599302476"/>
+				<text><![CDATA[Colombo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="90" width="100" height="20" uuid="b3e698e5-1a7e-42c7-81e0-5911c455d51e"/>
+				<text><![CDATA[3453]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="111" width="100" height="20" uuid="413881e7-3ced-4d0d-b815-401709782468"/>
+				<text><![CDATA[0753434544]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="130" width="100" height="20" uuid="2ad5c6e8-8528-43c7-ae9b-cd62818eed6b"/>
+				<text><![CDATA[adyapana@edu.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="160" width="560" height="50" backcolor="#3366FF" uuid="346ed386-7a3a-4a96-ab91-fa9a13cc8d64"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="175" width="70" height="20" uuid="b3fb5e7d-1cfa-4f66-81f9-bf14517c91ed"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Issued By :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="70" y="175" width="100" height="20" uuid="46dc1bc2-711a-4dd8-b1db-157499fbc5e1"/>
+				<textFieldExpression><![CDATA[$F{system_user_username}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="270" y="175" width="40" height="20" uuid="c2cece37-7800-4dee-afae-7d1bd2cf5f01"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="310" y="175" width="100" height="20" uuid="4c22ecc4-ba00-4c6b-bb39-07916f25797f"/>
+				<textFieldExpression><![CDATA[$F{time_date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="220" width="100" height="20" uuid="71e8d728-79e5-4981-9b05-42680df9ceac"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Student]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="240" width="40" height="20" uuid="bdb404a0-dac1-4a70-8534-66a8068a6893"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SID :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="260" width="40" height="20" uuid="e1397b2c-baa9-4385-ba17-46378688f2dc"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="40" y="240" width="100" height="20" uuid="c7378626-e3fc-48f9-aa1a-34a685d22b81"/>
+				<textFieldExpression><![CDATA[$F{student_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="260" width="100" height="20" uuid="b025a811-5b9f-469a-beae-8321113d40d6"/>
+				<textFieldExpression><![CDATA[$F{fullname}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="350" y="30" width="170" height="130" uuid="e11e66cd-2b0e-411d-ad87-7ab01032885d"/>
+				<imageExpression><![CDATA["C:/Users/User/Downloads/r.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="27" splitType="Stretch"/>
+	</pageHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="575" height="30" uuid="a344f23d-44ab-452f-b911-b3408785e10b"/>
+				<subreportParameter name="iid">
+					<subreportParameterExpression><![CDATA[$P{iid}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["sub.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<summary>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement x="330" y="10" width="100" height="20" uuid="0c6a198d-63e3-4cae-9589-7924b24bdd8f"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Payment Method :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="30" width="100" height="20" uuid="07351206-dc77-4ff5-a89a-7000e1e97375"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Payment :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="50" width="100" height="20" uuid="47c501d3-5076-45df-8d8e-992e52458c57"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Balance :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="430" y="30" width="115" height="20" uuid="c289315a-d459-4a6f-b52a-c2a8d7a8b967"/>
+				<textFieldExpression><![CDATA[$F{payment}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="50" width="115" height="20" uuid="5731cd77-fc35-4b99-b319-13c2b2ea5401"/>
+				<textFieldExpression><![CDATA[$F{balance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="10" width="115" height="20" uuid="b2e11f3c-4d88-4e27-b790-15b136b0887f"/>
+				<textFieldExpression><![CDATA[$F{paymentMethod}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
